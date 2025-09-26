@@ -9,15 +9,18 @@ function useTheme() {
 }
 
 export default function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("light");
-
-  // read stored preference or system
-  useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (saved) setTheme(saved);
-    else if (prefersDark) setTheme("dark");
-  }, []);
+  const [theme, setTheme] = useState(() => {
+    try {
+      const saved = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
+      if (saved === "light" || saved === "dark") return saved;
+      const prefersDark = typeof window !== "undefined" && window.matchMedia
+        ? window.matchMedia("(prefers-color-scheme: dark)").matches
+        : false;
+      return prefersDark ? "dark" : "light";
+    } catch {
+      return "light";
+    }
+  });
 
   // apply & persist
   useEffect(() => {
@@ -26,7 +29,7 @@ export default function ThemeProvider({ children }) {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => setTheme(t => (t === "light" ? "dark" : "light"));
+  const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -35,5 +38,6 @@ export default function ThemeProvider({ children }) {
   );
 }
 
-// attach the hook as a property of the default export (no extra exports)
+// keep the legacy property for compatibility
 ThemeProvider.useTheme = useTheme;
+export { useTheme };

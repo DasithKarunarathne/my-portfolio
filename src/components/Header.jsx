@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import ThemeProvider from "./ThemeProvider";
-const useTheme = ThemeProvider.useTheme; // ok if you used the single-file pattern
+import ThemeProvider, { useTheme } from "./ThemeProvider";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
