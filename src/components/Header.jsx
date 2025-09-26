@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import ThemeProvider, { useTheme } from "./ThemeProvider";
-
+import useTheme from "./useTheme";
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,7 +31,7 @@ export const Header = () => {
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white/90 backdrop-blur-md shadow-md dark:bg-gray-900/90"
-          : "bg-transparent"
+          : "bg-white/70 dark:bg-gray-900/70 backdrop-blur"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

@@ -13,7 +13,7 @@ const highlights = [
 
 export const About = () => (
   <Element name="about">
-    <section id="about" className="py-24 scroll-mt-24 md:scroll-mt-28">
+    <section id="about" className="py-24 scroll-mt-24 md:scroll-mt-28 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>

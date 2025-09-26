@@ -51,28 +51,13 @@ export const Achievements = () => {
       date: "2022, 2023",
       icon: "award",
     },
-    {
-      title: "2nd Place - University Hackathon",
-      organization: "SLIIT CodeFest",
-      date: "August 2022",
-      icon: "trophy",
-    },
-    {
-      title: "Advanced React & Redux",
-      organization: "Udemy",
-      date: "June 2023",
-      icon: "certificate",
-    },
-    {
-      title: "Microsoft Azure Fundamentals (AZ-900)",
-      organization: "Microsoft",
-      date: "April 2023",
-      icon: "certificate",
-    },
+  
+  
+   
   ];
   return (
     <Element name="achievements">
-      <section id="achievements" className="py-24 scroll-mt-24 md:scroll-mt-28">
+      <section id="achievements" className="py-24 scroll-mt-24 md:scroll-mt-28 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-12 text-center">
