@@ -53,7 +53,7 @@ export const Header = () => {
 
           {/* Desktop nav */}
           <div className="hidden md:block">
-            <nav className="flex items-center space-x-6">
+            <nav className="flex items-center space-x-6 text-gray-700 dark:text-gray-300">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
